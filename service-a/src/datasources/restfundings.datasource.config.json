@@ -1,0 +1,89 @@
+{
+  "name": "restfundings",
+  "connector": "rest",
+  "debug": "true",
+  "crud": true,
+  "operations": [
+    {
+      "template": {
+        "method": "GET",
+        "url": "http://service-b:3001/fundings"
+      },
+      "functions": {
+        "getFundings": []
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "http://service-b:3001/fundings/{id}"
+      },
+      "functions": {
+        "getFundingById": [
+          "id"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "http://service-b:3001/fundings/{id}"
+      },
+      "functions": {
+        "deleteFundingById": [
+          "id"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "http://service-b:3001/fundings/{id}",
+        "headers": {
+          "accepts": "application/json",
+          "content-type": "application/json"
+        },
+        "body": "{funding:Funding}"
+      },
+      "functions": {
+        "replaceFundingById": [
+          "id",
+          "funding"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "http://service-b:3001/fundings/",
+        "headers": {
+          "accepts": "application/json",
+          "content-type": "application/json"
+        },
+        "body": "{funding:Funding}"
+      },
+      "functions": {
+        "createFunding": [
+          "funding"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "PATCH",
+        "url": "http://service-b:3001/fundings/{id}",
+        "headers": {
+          "accepts": "application/json",
+          "content-type": "application/json"
+        },
+        "body": "{funding:Funding}"
+      },
+      "functions": {
+        "updateFundingById": [
+          "id",
+          "funding"
+        ]
+      }
+    }
+  ]
+}
